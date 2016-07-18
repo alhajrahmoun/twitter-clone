@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row">
+	<div class="col-sm-4">
+	<h4>Hello <%= [current_user.first_name, current_user.last_name].join(" ")%></h4>
+		<h4>say something:</h4>
+		<%= form_for [@tweet, Tweet.new], remote: true, html:{class: 'form-inline'} do |f| %>
+			<div class="form-group">
+			<%= f.text_area :content, class: 'form-control', placeholder: 'tweet', rows: '4' %>
+			<%= f.submit "Tweet", class: 'btn btn-primary'%>
+		<% end %>
+	</div>
+	</div>
+
+	<div class="col-sm-8 ">
+	<h1><u>Latest Tweets</u></h1>
+	<% @tweets.each do |tweet| %>
+		<%= render tweet %>
+	<% end %>
+	</div>
+</div>

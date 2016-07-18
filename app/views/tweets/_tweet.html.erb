@@ -1,0 +1,11 @@
+<%= div_for tweet do %> 
+	<blockquote>
+	<% @user = User.find(tweet.user_id)%> 
+	<h5><%= [@user.first_name,@user.last_name].join(" ")%></h5>
+	<%= tweet.content %>
+	<footer><%= time_ago_in_words(tweet.created_at) %> Ago
+	<%= link_to "Edit", edit_tweet_path(tweet), :remote => true %>
+	<%= link_to "Delete", tweet_path(tweet), :method => :delete %>
+	</footer></blockquote>
+	<hr>
+<% end %>

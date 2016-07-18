@@ -1,0 +1,5 @@
+<%= form_for @tweet, remote: true, html:{class: 'form-inline'} do |f| %>
+	<div class="form-group">
+	  <%= f.text_area :content, class: 'form-control', placeholder: 'tweet', rows: '4' %>
+      <%= f.submit "Tweet", class: 'btn btn-primary'%>
+<% end %>

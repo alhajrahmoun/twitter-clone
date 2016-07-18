@@ -1,0 +1,4 @@
+var new_tweet = $("<%= escape_javascript(render(:partial => @tweet))%>").hide();
+$('.tweet').prepend(new_tweet);
+$('#tweet_<%= @tweet.id %>').fadeIn('slow');
+$('#new_tweet')[0].reset();
